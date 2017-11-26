@@ -43,8 +43,23 @@ public class CargaisonDaoImpl implements ICargaisonDao {
 		// Recuperation de la session
 		Session s = sf.getCurrentSession();
 		
-		s.save(ca);
+		//Requete HQL
+		String req = "INSERT INTO CargaisonAerienne ca VALUES (:pRef,:pDistance,:pDatedeLivraison,:pPoids)";
+		
+		// Creation du Query
+		Query query = s.createQuery(req);
+		
+		//Passage des paramètres
+		query.setParameter("pRef", ca.getRef());
+		query.setParameter("pDistance", ca.getDistance());
+		query.setParameter("pDatedeLivraison", ca.getDateLivraison());
+		query.setParameter("pPoids", ca.getPoidsMax());
+		
+		//Envoi de la requete
+		query.executeUpdate();
+		
 		return ca;
+		
 	}
 
 	@Override
