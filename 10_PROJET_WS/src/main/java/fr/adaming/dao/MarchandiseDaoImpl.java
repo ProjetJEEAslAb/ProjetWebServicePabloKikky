@@ -36,18 +36,18 @@ public class MarchandiseDaoImpl implements IMarchandiseDao {
 		Session s = sf.getCurrentSession();
 
 		// Requete HQL
-		String req = "FROM Marchandise m WHERE p.id=:pId";
+		String req = "FROM Marchandise m WHERE m.nom=:pNom";
 
 		// Creation du Query
 		Query query = s.createQuery(req);
 
 		// Passage du paramètre Id
-		query.setParameter("pId", id);
+		query.setParameter("pNom", nom);
 
 		// Envoi de la requete et récupération du resultat
-		Pays p_out = (Pays) query.uniqueResult();
+		Marchandise m_out = (Marchandise) query.uniqueResult();
 
-		return p_out;
+		return m_out;
 	}
 
 	@Override
