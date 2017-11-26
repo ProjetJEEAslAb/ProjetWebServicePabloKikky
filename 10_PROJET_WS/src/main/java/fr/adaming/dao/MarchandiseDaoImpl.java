@@ -1,5 +1,7 @@
 package fr.adaming.dao;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -50,14 +52,42 @@ public class MarchandiseDaoImpl implements IMarchandiseDao {
 	}
 
 	@Override
-	public Marchandise getMarchandiseByCargaison(Cargaison c) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Marchandise> getMarchandiseByCargaison(Cargaison c) {
+		// Recuperation de la session
+		Session s = sf.getCurrentSession();
+
+		// Requete HQL
+		String req = "FROM Marchandise m WHERE m.cargaison=:pCarg";
+
+		// Creation du Query
+		Query query = s.createQuery(req);
+
+		// Passage du paramètre Id
+		query.setParameter("pCarg", c);
+
+		// Envoi de la requete et récupération du resultat
+		@SuppressWarnings("unchecked")
+		List<Marchandise> lm_out = query.list();
+
+		return lm_out;
 	}
 
 	@Override
 	public void deleteMarchandise(int id) {
-		// TODO Auto-generated method stub
+		// Recuperation de la session
+		Session s = sf.getCurrentSession();
+
+		// Le requete HQL
+		String req = "DELETE FROM Marchandise m WHERE m.id=:pId";
+
+		// Creer un objet query
+		Query query = s.createQuery(req);
+
+		// Passage des paramètres
+		query.setParameter("pId", id);
+
+		// Recuperatino du resultat
+		query.executeUpdate();
 
 	}
 

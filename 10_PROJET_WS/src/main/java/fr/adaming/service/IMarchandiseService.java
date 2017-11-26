@@ -11,7 +11,7 @@ public Marchandise addMarchandise(Marchandise m);
 	
 	public Marchandise getMarchandiseByNom (String nom);
 	
-	public Marchandise getMarchandiseByCargaison (Cargaison c);
+	public List<Marchandise> getMarchandiseByCargaison (Cargaison c);
 	
 	public void deleteMarchandise (int id);
 }
