@@ -3,6 +3,7 @@ package fr.adaming.dao;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,20 +44,7 @@ public class CargaisonDaoImpl implements ICargaisonDao {
 		// Recuperation de la session
 		Session s = sf.getCurrentSession();
 		
-		//Requete HQL
-		String req = "INSERT INTO CargaisonAerienne VALUES (:pRef,:pDistance,:pDatedeLivraison,:pPoids)";
-		
-		// Creation du Query
-		Query query = s.createQuery(req);
-		
-		//Passage des paramètres
-		query.setParameter("pRef", ca.getRef());
-		query.setParameter("pDistance", ca.getDistance());
-		query.setParameter("pDatedeLivraison", ca.getDateLivraison());
-		query.setParameter("pPoids", ca.getPoidsMax());
-		
-		//Envoi de la requete
-		query.executeUpdate();
+		s.save(ca);
 		
 		return ca;
 		
