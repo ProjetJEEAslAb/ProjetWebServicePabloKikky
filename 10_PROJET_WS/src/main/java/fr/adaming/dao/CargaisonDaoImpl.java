@@ -44,7 +44,7 @@ public class CargaisonDaoImpl implements ICargaisonDao {
 		Session s = sf.getCurrentSession();
 		
 		//Requete HQL
-		String req = "INSERT INTO CargaisonAerienne ca VALUES (:pRef,:pDistance,:pDatedeLivraison,:pPoids)";
+		String req = "INSERT INTO CargaisonAerienne VALUES (:pRef,:pDistance,:pDatedeLivraison,:pPoids)";
 		
 		// Creation du Query
 		Query query = s.createQuery(req);
