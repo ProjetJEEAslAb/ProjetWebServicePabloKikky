@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.adaming.model.Cargaison;
+import fr.adaming.model.CargaisonAerienne;
 import fr.adaming.model.CargaisonRoutière;
 import fr.adaming.service.ICargaisonService;
 
@@ -40,6 +41,30 @@ public class CargaisonRest {
 	@RequestMapping(value = "/cargaisons", method = RequestMethod.GET, produces = "application/json")
 	public List<Cargaison> getAllCargaison() {
 		return cService.getAllCargaison();
+	}
+
+	/**
+	 * Ajouter une cargaison aérienne en appelant la méthode depuis Service
+	 * 
+	 * @param ca
+	 *            La cargaison aérienne à ajouter
+	 * @return Le retour de la méthode Service : la cargaison aérienne ajoutée
+	 */
+	@RequestMapping(value = "/ajoutCA", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
+	public CargaisonAerienne addCargaisonA(CargaisonAerienne ca) {
+		return cService.addCargaisonA(ca);
+	}
+	
+	/**
+	 * Ajouter une cargaison routière en appelant la méthode depuis Service
+	 * 
+	 * @param ca
+	 *            La cargaison routière à ajouter
+	 * @return Le retour de la méthode Service : la cargaison routière ajoutée
+	 */
+	@RequestMapping(value = "/ajoutCR", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
+	public CargaisonRoutière addCargaisonR(CargaisonRoutière cr) {
+		return cService.addCargaisonR(cr);
 	}
 
 }
