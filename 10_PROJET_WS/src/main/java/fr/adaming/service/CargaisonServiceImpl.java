@@ -29,14 +29,13 @@ public class CargaisonServiceImpl implements ICargaisonService {
 
 	@Override
 	public CargaisonAerienne addCargaisonA(CargaisonAerienne ca) {
-		// TODO Auto-generated method stub
-		return null;
+		return cargDao.addCargaisonA(ca);
 	}
 
 	@Override
 	public CargaisonRoutière addCargaisonR(CargaisonRoutière cr) {
 		// TODO Auto-generated method stub
-		return null;
+		return cargDao.addCargaisonR(cr);
 	}
 	
 	

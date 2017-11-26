@@ -40,14 +40,21 @@ public class CargaisonDaoImpl implements ICargaisonDao {
 
 	@Override
 	public CargaisonAerienne addCargaisonA(CargaisonAerienne ca) {
-		// TODO Auto-generated method stub
-		return null;
+		// Recuperation de la session
+		Session s = sf.getCurrentSession();
+		
+		s.save(ca);
+		return ca;
 	}
 
 	@Override
 	public CargaisonRoutière addCargaisonR(CargaisonRoutière cr) {
-		// TODO Auto-generated method stub
-		return null;
+		// Recuperation de la session
+		Session s = sf.getCurrentSession();
+		
+		s.save(cr);
+		return cr;
+
 	}
 
 }
