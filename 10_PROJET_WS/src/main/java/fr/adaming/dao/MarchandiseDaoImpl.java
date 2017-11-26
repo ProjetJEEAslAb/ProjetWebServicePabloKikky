@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Cargaison;
 import fr.adaming.model.Marchandise;
-import fr.adaming.model.Pays;
 
 @Repository
 public class MarchandiseDaoImpl implements IMarchandiseDao {
