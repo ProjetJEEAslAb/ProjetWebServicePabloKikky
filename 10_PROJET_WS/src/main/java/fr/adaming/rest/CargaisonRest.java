@@ -67,5 +67,7 @@ public class CargaisonRest {
 	public CargaisonRoutière addCargaisonR(@RequestBody CargaisonRoutière cr) {
 		return cService.addCargaisonR(cr);
 	}
+	
+	
 
 }
