@@ -37,7 +37,7 @@ public class MarchandiseServiceImpl implements IMarchandiseService{
 	}
 
 	@Override
-	public void deleteMarchandise(int id) {
+	public void deleteMarchandise(long id) {
 		marchDao.deleteMarchandise(id);
 		
 	}

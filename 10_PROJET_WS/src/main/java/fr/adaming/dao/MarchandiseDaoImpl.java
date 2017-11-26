@@ -73,7 +73,7 @@ public class MarchandiseDaoImpl implements IMarchandiseDao {
 	}
 
 	@Override
-	public void deleteMarchandise(int id) {
+	public void deleteMarchandise(long id) {
 		// Recuperation de la session
 		Session s = sf.getCurrentSession();
 

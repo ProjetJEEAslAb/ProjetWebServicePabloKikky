@@ -78,7 +78,7 @@ public class MarchandiseRest {
 	 *            Id de la marchandises à supprimer
 	 */
 	@RequestMapping(value = "/march/{pId}", method = RequestMethod.DELETE)
-	public void deleteMarchandise(@PathVariable("pId") int id) {
+	public void deleteMarchandise(@PathVariable("pId") long id) {
 		mService.deleteMarchandise(id);
 	}
 

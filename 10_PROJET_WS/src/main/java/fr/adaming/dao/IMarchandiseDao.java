@@ -13,6 +13,6 @@ public interface IMarchandiseDao {
 	
 	public List<Marchandise> getMarchandiseByCargaison (Cargaison c);
 	
-	public void deleteMarchandise (int id);
+	public void deleteMarchandise (long id);
 
 }
